@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MEGA</title>
+    <link rel="icon" href="/favicon.ico?v=3" type="image/x-icon" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="fileUploadModal"
+      tabindex="-1"
+      aria-labelledby="fileUploadModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <div class="d-flex flex-row">
+              <div class="p-5 pr-4">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+
+                <h2 class="title border-btm">File Upload</h2>
+                <form
+                  id="fileUploadForm"
+                  method="post"
+                  enctype="multipart/form-data"
+                >
+                  <div class="mb-3 mt-3">
+                    <label for="password" class="form-label"
+                      >Enter Password to Encrypt Files</label
+                    >
+                    <input type="password" class="form-control" id="password" />
+                  </div>
+
+                  <div class="border-btm mt-4 mb-4"></div>
+
+                  <div class="mb-3">
+                    <label for="file" class="form-label">Upload File</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="uploadFile"
+                      disabled="disabled"
+                    />
+                  </div>
+
+                  <div class="btn-container pt-3 mb-2">
+                    <!-- <button type="button" class="btn btn-light btn-browse">
+                      Browse
+                    </button> -->
+                    <div class="fileUpload btn btn-light btn-browse">
+                      <span>Browse</span>
+                      <input
+                        id="uploadBtn"
+                        onChange="setFileValue(event)"
+                        type="file"
+                        class="upload"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      id="submitBtn"
+                      onClick="uploadFileOnServer()"
+                      class="btn btn-light btn-upload"
+                    >
+                      Upload
+                    </button>
+                  </div>
+
+                  <div id="result" class="alert" role="alert"></div>
+                </form>
+              </div>
+              <div class="p-5 flex-fill progress-container">
+                <h3 class="progess-title">Progress</h3>
+
+                <table class="table custom-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">DATE</th>
+                      <th scope="col">NAME</th>
+                      <th scope="col">PROGRESS</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/crypto-js.min.js"></script>
+    <script src="assets/js/index.js"></script>
+  </body>
+</html>
